@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("📚 Learn Data Science App by Likitha")
+st.title("📚 Likhitha's Data Science Learning Hub")
 st.header("📄 Data Types, Central Tendency & Dispersion")
 
 doc_text = """
@@ -21,6 +21,7 @@ doc_text = """
 """
 
 st.markdown(doc_text)
+
 
 
 
