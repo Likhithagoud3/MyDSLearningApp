@@ -1,15 +1,21 @@
 import streamlit as st
+from docx import Document
 
-st.title("📚 Learn Data Science App by Likhitha")
+st.title("📚 Learn Data Science App by Likitha")
+st.header("📄 Data Types, Central Tendency & Dispersion")
 
-st.header("🐍 Python Basics - Cheat Sheet")
+def read_docx(file_path):
+    doc = Document(file_path)
+    content = ""
+    for para in doc.paragraphs:
+        content += para.text + "\n"
+    return content
 
 try:
-    with open("python_cheat.txt", "r", encoding="utf-8") as file:
-        cheat_content = file.read()
-    st.text_area("📘 Python Cheat Code", cheat_content, height=400)
-except FileNotFoundError:
-    st.error("❌ Cheat code file not found. Please upload 'python_cheat.txt' to your GitHub repo.")
+    doc_text = read_docx("Data_Types_Central_Tendency_Dispersion(1).docx")  # use exact name
+    st.text_area("Document Content", doc_text, height=600)
+except Exception as e:
+    st.error(f"⚠ Could not load the DOCX file: {e}")
 
 
 
